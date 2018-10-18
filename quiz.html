@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+	<title>London tube Quiz</title>
+	
+
+</head>
+
+<body onload="pageLoad()">
+	
+<div class= "quiz-block">
+	
+	<h1 class ="intro-header" id ="question"> </h1>	
+	
+	
+	<div class="answers">
+		
+	<button onclick="checkAnswer('answer-1')" id ="answer-1" class="answer-1">Central</button>
+	
+	<button onclick="checkAnswer('answer-2')" id ="answer-2" class="answer-2">Picadilly</button>
+
+	<button onclick="checkAnswer('answer-3')" id ="answer-3" class="answer-3">Northern</button>
+	
+	<button onclick="checkAnswer('answer-4')" id ="answer-4" class="answer-4">District</button>
+
+	<button onclick="checkAnswer('answer-5')" id ="answer-5" class="answer-5">Victoria</button>
+	
+	<button onclick="checkAnswer('answer-6')" id ="answer-6" class="answer-6">Bakerloo</button>
+	
+	<button onclick="checkAnswer('answer-7')" id ="answer-7" class="answer-7">Circle</button>
+	
+	<button onclick="checkAnswer('answer-8')" id ="answer-8" class="answer-8">Hammersmith and City</button>
+	
+	</div>
+	
+	<div class="side-buttons">
+		
+	<div>
+		<button onclick= "visitPage('FWD');" id="next-button" class="next-button">Next</button>
+	</div>
+	
+	<div>
+		<button onclick= "visitPage('BCK');" id="previous-button" class="previous-button">Previous</button>
+	</div>
+	
+	<div>
+		<button onclick="simplifyQuestion()" id="simplify-button" class="simplify-button">Simplify</button>
+	</div>	
+		
+	</div>
+	
+	
+</div>
+	
+<script>
+// Initialise global variables
+// var questionNumber = "3";
+// Array to hold the questions and answers [Number:Question:Answer, repeat......]
+var questions = ['1:Queensway to Oxford Circus:Central', '2:Waterloo to Tottenham Court Road:Northern', '3:Paddington to Waterloo:Bakerloo', '4:Edgeware Road to Elephant and Castle:Bakerloo', '5:South Kensington to Liverpool Street:Circle', '6:Baker Street to Aldgate East:Hammersmith and City', '7:Vauxhall to Euston:Victoria', '8:Shepherds Bush to Chancery Lane:Central', '9:Earl&#39;s Court to Kings Cross St Pancras:Picadilly', '10:Marylebone to Charing Cross:Bakerloo'];
+var result = "Your answer was incorrect!";
+var nowHidden = [];
+
+var questionNumber=getParam();
+
+function pageLoad() {
+		
+	//showParam();
+	  
+    for (var i = 0; i < questions.length; i++) {
+
+        var splitQuestion = questions[i].split(':');
+
+        if (splitQuestion[0] === questionNumber){
+            document.getElementById("question").innerHTML = splitQuestion[1]; 
+            break;
+        } 
+    }
+}
+
+function checkAnswer(answerClicked) {
+	
+    for (var i = 0; i < questions.length; i++) {
+
+        var splitAnswer = questions[i].split(':');
+      
+        //alert(document.getElementById(answerClicked).innerHTML);
+        //alert(splitAnswer[2]);
+
+        if (splitAnswer[2] === document.getElementById(answerClicked).innerHTML && splitAnswer[0] === questionNumber){
+      	    result = "Your answer was correct!";
+        }
+    }
+    alert(result);
+    //	alert(document.getElementById(answerClicked).innerHTML);
+}
+
+function simplifyQuestion(){
+
+	var posCorrectAnswer;
+	var splitAnswer = questions[questionNumber-1].split(':');
+	var correctAnswer = splitAnswer[2];
+	
+	switch (correctAnswer){
+    case "Central":
+        posCorrectAnswer=1;
+        break;
+    case "Picadilly":
+        posCorrectAnswer=2;
+        break;
+    case "Northern":
+        posCorrectAnswer=3;
+        break;
+    case "District":
+        posCorrectAnswer=4;
+        break;
+    case "Victoria":
+        posCorrectAnswer=5;
+        break;
+    case "Bakerloo":
+        posCorrectAnswer=6;
+        break;
+    case "Circle":
+        posCorrectAnswer=7;
+        break;
+    case "Hammersmith and City":
+        posCorrectAnswer=8;
+        break;
+    }
+    
+    var randomNumber;
+    do {
+        randomNumber = Math.floor(Math.random() * 8) + 1;  // returns a random integer from 1 to 8
+        //	alert(randomNumber);
+    }
+    // keep looping new randoms until it is different to the position of the correct answer
+    while (Number(randomNumber) === Number(posCorrectAnswer) || nowHidden.includes(Number(randomNumber))); 
+
+    	
+	document.querySelector("#answer-" + randomNumber).style.visibility = "hidden";  // hide the random answer button
+	nowHidden.push(Number(randomNumber));   // add random number to the array holding the hidden buttens.
+	
+}
+
+function getUrlVars() {
+
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+
+function getParam() {
+
+    var number = getUrlVars()["question"];
+    //alert(number);
+    return number;
+}
+
+function visitPage(direction){
+
+               
+
+    if (direction == "FWD") var nextPage = Number(getUrlVars()["question"]) + 1;
+
+    if (direction == "BCK") var nextPage = Number(getUrlVars()["question"]) - 1;
+
+    //alert(nextPage);
+
+
+    if (nextPage > 0 && nextPage <= questions.length){
+        window.location='quiz.html?question=' + nextPage.toString();   // remember to also check for max number of questions in array
+    }
+    
+    }
+
+
+
+//var link=document.createElement("a");
+//link.id = 'someLink'; //give it an ID!
+//link.href="http://stackoverflow.com/questions/4772774/how-do-i-create-a-link-using-   javascript";
+//
+//Add the link somewhere, an appendChild statement will do.
+//Then run this
+//document.getElementById('someLink').click();
+
+</script>	
+
+	
+</body>
+
+
+</html>

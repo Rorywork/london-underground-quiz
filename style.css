@@ -1,0 +1,205 @@
+body{
+    background-image: url("http://www.stationmasterapp.com/blog/wp-content/uploads/2014/03/blankedoutmap.png");
+    background-repeat: no-repeat;
+}
+
+.quiz-block{
+    -moz-box-shadow:0 0 8px 0 black;
+    -webkit-box-shadow:0 0 8px 0 black;
+    box-shadow:0 0 8px 0 black;
+    margin: 80px;
+    height: 600px;
+    width: 600px;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+}
+
+.intro-header{
+    margin-left:10px;
+    padding-top: 50px;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+.red-text{
+    color: blue;
+}
+
+.high-scores{
+    float:left;
+}
+
+.high-score-header{
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-left: 40px;
+    color: red;
+}
+
+.high-score-list{
+    font-family: sans-serif;
+    font-size: 12px;
+    
+}
+
+.start-button{
+    -moz-box-shadow:0 0 8px 0 red;
+    -webkit-box-shadow:0 0 8px 0 red;
+    box-shadow:0 0 2px 0 red;
+    height: 170px;
+    width: 150px;
+    position: relative;
+    margin-top:20%;
+    margin-right:20%;
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 20px;
+    float: right;
+}
+
+
+.start-text{
+    text-align: center;
+    font-family: sans-serif;
+    margin-top: 65px;
+    color: red;
+}
+
+.line{
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 5px;
+    color: white;
+}
+
+.answers{
+    float: left;
+    width:60%;
+}
+
+
+.answer-1{
+    color: white;
+    padding-top: 10px;
+    background-color: red;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.answer-2{
+    color: white;
+    background-color: #0018A3;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.answer-3{
+    color: white;
+    background-color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.answer-4{
+    color: white;
+    background-color: #006E28;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.answer-5{
+    color: white;
+    background-color: #009BDB;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.answer-6{
+    color: white;
+    background-color: #854C23;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.answer-7{
+    color: white;
+    background-color: #F7C800;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+
+.answer-8{
+    color: white;
+    background-color: #E496AC;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.side-buttons{
+    float: right;
+    margin-top: 10%;
+    margin-right: 10%;
+}
+
+.next-button{
+    height: 100px;
+    width:100px;
+    margin-bottom: 10px;
+    border-radius:10px;
+}
+
+.next-button:hover{
+    background-color: grey;
+    color:white;
+}
+
+.previous-button{
+    height: 100px;
+    width:100px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.previous-button:hover{
+    background-color: grey;
+    color:white;
+}
+
+.simplify-button{
+    height: 100px;
+    width:100px;
+    background-color: #01F702;
+    border-radius:10px;
+}
